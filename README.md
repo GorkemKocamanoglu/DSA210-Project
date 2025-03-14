@@ -1,35 +1,75 @@
 # Correlation Between Several Game Attributes and the Revenue Generated on Steam
 
-The Steam database provides a vast amount of publicly available user data to analyze. It includes information on game developers, genre tags, user review scores, and—most importantly—the number of user ratings, from which we can estimate units sold and revenue generated. We can also access the professional review scores of a game from Metacritic website.
+## Motivation
 
-The goal of this project is to determine the potential correlation between the user reviews, professional reviews, genre of the game, the budget of the game (whether it was developed by a large studio of hundreds of employees or by a small team) with the revenue generated, thus find out what factors influence the financial success of a game.
+I have always been passionate about games and statistics. Statistic course I took last semester was actually my favorite course in this university. Combining that with the rapidly growing game industry will be very interesting and insightful.
 
-## Data I will be using:
+At the same time, money is something else that i like and need. By the end of this project I plan to come to a conclusion about the most optimal ways to develop a game, so that if someday I develop a game, I will make right decisions.
 
-**Game Developers:** I will analyze if a game developed by a well-known studio financially succeeds, even if the product is not as highly rated compared to their other products. 
+## Overview
 
-**Genre-Tags:** I will investigate if specific genres tend to perform better than others, or is it mostly dependent on the quality of the product, regardless of the genre.
+The Steam database provides a vast amount of publicly available data to analyze. It includes information on developers of the game, the price, genre tags, user review scores, and—most importantly—the number of user ratings, from which we can estimate units sold and revenue generated. We can also access the professional review scores from Metacritic website.
 
-**Metacritic and User Ratings:** Metacritic is a platform that collects the reviews from several media organizations and combine them into a final rating of the game by taking the average while Steam allows players who bought the game to leave a positive or negative review and displays the percentage of positive reviews in the game’s store page. My goal is to explore if and how these ratings influence a game’s success, and which of the two (user reviews or professional reviews) has a stronger correlation with financial success.
+The goal of this project is to determine the potential correlation between the user reviews, professional reviews, genre of the game, and the country of origin of the developers with the revenue generated to find out what factors influence the financial success of a game.
 
-**Revenue Generated:** Estimating revenue is a key part of this project. Many publishers do not publicly share their revenues, but we can estimate a game’s revenue by using the number of user reviews on Steam. On average, 1 out of 50 people who buy a game leave a review. By multiplying the number of reviews by 50, we can estimate the total number of sales, and then multiply that by the game’s price to get gross revenue.
+## Dataset and Objectives:
 
-From this, we subtract:
+**Game Developers:** I will analyze the origin of the developer team to see if a game from different countries have similar chances of success. While analyzing this I will take into consideration the population of the country as a factor. Since more games are produced in highly populated countries, I will normalize for population size (a form of **'success per capita'**).
+
+**Genre-Tags:** I will investigate if specific genres tend to perform better than others. I will consider only the first three game tags that appear when searching for a game, as these represent its primary genres
+
+**The Price:** Prices vary widely in the gaming industry. I will investigate if the prices have an effect on the financial success of a game, by comparing lower priced games(10-30 dollars), middle priced ranges(30-50 dollars) and full priced games(60-70 dollars).
+
+**Ratings:** Metacritic is a platform that collects the reviews from several media organizations and combine them into a final rating of the game by taking the average while Steam allows players who bought the game to leave a positive or negative review and displays the percentage of positive reviews in the game’s store page. My goal is to explore if and how these ratings influence a game’s success, and which of the two (user reviews or professional reviews) has a stronger correlation with financial success.
+
+**Quality Score:** I refer to the Quality Score as the optimized score. This method is a widely used statistics formula on rating sites for many movies and books. Essentially what i will do to calculate quality score is i will take the user reviews for a game, and add around 100-500 more negative reviews. This will lower the averages for every game, especially for ones that are rated by lower number of players. This will prevent small games with very few reviews from being disproportionately rated as the best(for example a game with only 1 positive review is considered 100% positive but if we add 100 negative reviews, it drops down to 0.001).
+
+**Revenue Generated:** Estimating revenue is a key part of this project. Many publishers do not publicly share their revenues, but we can estimate a game’s revenue by using the number of user reviews on Steam. On average, 1 out of 50 people who purchase a game leave a review. By multiplying the number of reviews by 50, we can estimate the total number of sales, and then multiply that by the game’s price to get gross revenue.
+
+From this estimate, we subtract:
 
 - **10%** for sales-based discounts
 - **5%** for returns
 - **5%** for regional price adjustments
 - **30%** Steam’s cut
 
-This formula gives us the final net revenue generated by the game, which is almost half of the gross revenue!
+This formula gives us the final net revenue generated by the game, which is almost half of the gross revenue! 
+
 
 ## How I plan to extract Data
 
-**Game Developers and Genre Tags:** Data can easily be extracted fromt the store page by using web scraping and visualizing with pandas and numpy libraries.
+**Game Developers, Genre Tags and Prices:** Data can easily be extracted fromt the store page by using web scraping and visualizing with pandas and numpy libraries.
 
 **Steam Reviews:** This is a bit trickier since reviews are loading as you scroll down and dynamically change but we don't need the reviews themselves, only the percentage of positive reviews, which can also be extracted from the store page directly by web scraping.
 
 **Metacritic Reviews:** Like Steam reviews, metacritic ratings can also be extracted from the website using web scraping.
+
+## Combining the Data
+
+I will combine all these data in a csv file. First I will calculate the aforementioned Quality Score (using pandas and numpy) , then visualize the results using visualization techniques from libraries like matplotlib. This visualization will provide a general overview. I also plan to calculate p-values to determine whether a significant correlation exists.
+
+## Hypothesisses
+
+**H₀:** The country of origin has no influence in the financial success of a game.
+**H₁:** The country of origin influences whether a game financially succeeds or fails.
+
+**H₀:** The genre of the game has no impact on the financial success of a game.
+**H₁:** Some genres are more likely to succeed compared to other genres.
+
+**H₀:** User review scores (with Quality Score adjustment) and professional review scores have equal influence on a game’s financial success.
+**H₁:** One of the review scores (user or professional) has a stronger correlation with financial success.
+
+**H₀:** Game price has no effect on revenue generation.
+**H₁:** Higher or lower game prices significantly impact revenue.
+
+
+## Limitations and Conclusion
+
+My main limitation lies in the user review datas. The assumption that 1 in 50 buyers will leave a review is an approximation and may not hold for all games. Some games will have lower review counts(adult/mature content) or higher due to factors like humor factors or fanbases. According to my research estimations can go as high as 1 in 20 or as low as 1 in 200. But these are outliers and are negligible for the whole scope of this project.
+
+I plan to start my project with collecting data as soon as possible and I am more enthusiastic than ever about this project. Hopefully in the end I will have solid proofs on what is most optimal and reliable way of developing games.
+
+
 
 
 
