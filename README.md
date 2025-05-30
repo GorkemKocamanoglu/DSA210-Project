@@ -131,7 +131,30 @@ This project demonstrates that:
 - Clustering helps differentiate game types and market segments.
 - Basic linear regression can model trends, but improvements are needed for better precision.
 
+---  
+## Future Outlook  
+1. **Model Enhancement**  
+   Explore advanced machine learning models such as Random Forests, Gradient Boosting, or Neural Networks to improve prediction accuracy for review counts and other game success metrics.
+
+2. **Feature Expansion**  
+   Incorporate additional variables like genre, developer reputation, release year, and user engagement metrics (e.g., playtime, achievement unlocks) to deepen insights.
+
+3. **Sentiment Analysis Refinement**  
+   Use natural language processing (NLP) techniques to analyze full review texts for more granular and accurate sentiment scores.
+
+4. **Temporal Trends**  
+   Study how pricing, sentiment, and review patterns evolve over time, especially post-launch, to gain a longitudinal perspective on game performance.
+
+5. **Clustering Optimization**  
+   Apply more sophisticated clustering techniques such as DBSCAN or hierarchical clustering, possibly combined with dimensionality reduction methods like PCA or t-SNE, to identify distinct market segments.
+
+6. **Dashboard Integration**  
+   Develop an interactive dashboard with filters for sentiment, price, and review metrics to make insights more accessible for stakeholders such as developers, marketers, and analysts.
+
 ---
+
+This project lays the foundation for a deeper exploration of the factors that drive success in the video game market, with many promising directions for future work.
+
 
 
 
