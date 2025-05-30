@@ -20,6 +20,7 @@ The goal of this project is to determine the potential correlation between the u
 
 **The Price:** Prices vary widely in the gaming industry. I will investigate if the prices have an effect on the financial success of a game, by comparing lower priced games(10-30 dollars), middle priced ranges(30-50 dollars) and full priced games(60-70 dollars).
 
+
 **Ratings:** Metacritic is a platform that collects the reviews from several media organizations and combine them into a final rating of the game by taking the average while Steam allows players who bought the game to leave a positive or negative review and displays the percentage of positive reviews in the game’s store page. My goal is to explore if and how these ratings influence a game’s success, and which of the two (user reviews or professional reviews) has a stronger correlation with financial success.
 
 **Quality Score:** I refer to the Quality Score as the optimized score. This method is a widely used statistics formula on rating sites for many movies and books. Essentially what i will do to calculate quality score is i will take the user reviews for a game, and add around 100-500 more negative reviews. This will lower the averages for every game, especially for ones that are rated by lower number of players. This will prevent small games with very few reviews from being disproportionately rated as the best(for example a game with only 1 positive review is considered 100% positive but if we add 100 negative reviews, it drops down to 0.001).
@@ -69,11 +70,15 @@ My main limitation lies in the user review datas. The assumption that 1 in 50 bu
 
 I plan to start my project with collecting data as soon as possible and I am more enthusiastic than ever about this project. Hopefully in the end I will have solid proofs on what is most optimal and reliable way of developing games.
 
+## Scraping the Datasets and Applying ML Methods
 
+![image](https://github.com/user-attachments/assets/b5ed9bcc-dbe3-4cbd-a45e-5d84d33a738f)
 
+![image](https://github.com/user-attachments/assets/5ed3b19e-213c-4165-809f-0b747ccd617b)
 
+![image](https://github.com/user-attachments/assets/78801933-3e2c-4afb-aa20-a8f05e4138df)
 
-
+![image](https://github.com/user-attachments/assets/96d32fc5-c932-438b-be4b-01a10633d812)
 
 
 
