@@ -71,14 +71,71 @@ My main limitation lies in the user review datas. The assumption that 1 in 50 bu
 I plan to start my project with collecting data as soon as possible and I am more enthusiastic than ever about this project. Hopefully in the end I will have solid proofs on what is most optimal and reliable way of developing games.
 
 ## Scraping the Datasets and Applying ML Methods
+## 📊 Positive Review % vs Review Count
+
+
+The first plot illustrates the relationship between **Positive Review Percentage** and **Review Count** on a logarithmic scale.  
+**Insights:**
+- Most games have a high positive rating (above 70%), regardless of review count.
+- Games with very low review counts are widespread, suggesting a long tail of niche titles.
+- Very few games fall below 40% in review positivity, reflecting survivorship bias on the platform.
+
+---
+
+## 💰 Price vs Review Count
 
 ![image](https://github.com/user-attachments/assets/b5ed9bcc-dbe3-4cbd-a45e-5d84d33a738f)
 
-![image](https://github.com/user-attachments/assets/5ed3b19e-213c-4165-809f-0b747ccd617b)
+This scatter plot explores how **Price ($)** relates to **Review Count**:  
+**Insights:**
+- A majority of games are priced under $100.
+- Some very high-priced games exist but typically have lower review counts.
+- Review count again follows a log distribution—only a few games achieve extremely high popularity.
 
+---
+
+## 🤖 K-Means Clustering of Games
+
+![image](https://github.com/user-attachments/assets/5ed3b19e-213c-4165-809f-0b747ccd617b)
 ![image](https://github.com/user-attachments/assets/78801933-3e2c-4afb-aa20-a8f05e4138df)
 
+Here, we use **K-Means Clustering** to group games based on **price** and **positive review percentage**:  
+**Cluster Breakdown:**
+- **Cluster 0 (red):** Lower-rated or unusually priced games.
+- **Cluster 1 (green):** Moderately priced games with a wide range of review scores.
+- **Cluster 2 (blue):** Consistently high-rated, lower-priced games (possibly indie hits or free-to-play).
+
+Clustering helps reveal market segments and potential pricing strategies.
+
+---
+
+## 📈 Predicting Review Counts (Linear Regression)
+
 ![image](https://github.com/user-attachments/assets/96d32fc5-c932-438b-be4b-01a10633d812)
+
+Using a **log-transformed linear regression model**, we attempt to predict **Review Count** based on **Price** and **Positive Review %**:  
+- The red dashed line represents ideal predictions (perfect fit).
+- The scatter points (blue) show predicted values.
+
+**Insights:**
+- While the model performs reasonably well on the log scale, there's noticeable underestimation of very popular games.
+- The log transformation helps stabilize variance and improves correlation, but nonlinear models might be needed for higher accuracy.
+
+---
+
+## 🧠 Conclusion
+
+This project demonstrates that:
+- Most games cluster around high positive reviews and lower prices.
+- Review count is difficult to predict precisely but has a meaningful relationship with both price and sentiment.
+- Clustering helps differentiate game types and market segments.
+- Basic linear regression can model trends, but improvements are needed for better precision.
+
+---
+
+
+
+
 
 
 
